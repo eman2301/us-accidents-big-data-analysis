@@ -1,0 +1,6 @@
+polars
+pandas
+pyarrow
+pyspark
+plotly
+dash

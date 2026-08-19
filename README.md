@@ -10,7 +10,7 @@ A **Random Forest classifier** is used to predict accident severity based on env
 
 This project uses a sampled version of the **US Accidents dataset** containing **500,000 traffic accident records** from **49 US states** between **2016 and 2023**.
 
-The original sampled dataset contains **46 attributes**, including information related to:
+The sampled dataset contains **46 attributes**, including information related to:
 
 - Accident severity
 - Location and state
@@ -22,7 +22,15 @@ The original sampled dataset contains **46 attributes**, including information r
 - Accident start and end times
 - Day and night conditions
 
-The dataset was cleaned and transformed before analysis to improve data quality and processing efficiency.
+### Data Source
+
+The original **US Accidents (2016–2023)** dataset is publicly available on Kaggle:
+
+[US Accidents Dataset – Kaggle](https://www.kaggle.com/datasets/sobhanmoosavi/us-accidents/data)
+
+This project uses the **500,000-record sampled version** of the dataset.
+
+The cleaned Parquet dataset used for analysis is included in this repository, while the larger original CSV is not included because of GitHub file-size limitations.
 
 ## Data Preparation and Feature Engineering
 
@@ -85,13 +93,15 @@ The dataset was split into **80% training data** and **20% testing data**.
 | Recall | 79.33% |
 | F1-Score | **70.19%** |
 
-The results demonstrate that historical accident characteristics contain useful information for predicting accident severity. However, class imbalance remains an important limitation because Severity 2 accidents represent the majority of records.
+The results demonstrate that historical accident characteristics contain useful information for predicting accident severity.
+
+However, class imbalance remains an important limitation because Severity 2 accidents represent the majority of records.
 
 ## Visualization and Interactive Dashboards
 
 The project uses **Plotly** and **Dash** to transform the cleaned accident data into interactive visualizations that support data-driven decision making.
 
-Two dashboards were developed.
+Two interactive dashboards were developed.
 
 ### Dashboard 1 – Trends and Geographic Analysis
 
@@ -140,7 +150,7 @@ us-accidents-big-data-analysis/
 └── requirements.txt
 ```
 
-The original sampled CSV is not included in the repository because its file size exceeds GitHub's normal per-file upload limit.
+The original sampled CSV is not included in the repository because of its large file size.
 
 ## Installation and Usage
 
@@ -163,7 +173,7 @@ The cleaned dataset is available at:
 data/cleaned_data.parquet
 ```
 
-To run the complete preprocessing workflow from the beginning, place the original sampled dataset inside the `data/` directory with the filename:
+To reproduce the complete preprocessing workflow from the beginning, download the sampled US Accidents dataset and place it inside the `data/` directory with the filename:
 
 ```text
 US_Accidents_March23_sampled_500k.csv
@@ -187,5 +197,6 @@ and run the notebook cells in order.
 - Plotly
 - Dash
 - Pandas
+- PyArrow
 - Parquet
 - Jupyter Notebook
